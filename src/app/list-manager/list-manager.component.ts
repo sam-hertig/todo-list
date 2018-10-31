@@ -11,10 +11,7 @@ export class ListManagerComponent implements OnInit {
 
   todoList: TodoItem[];
 
-  // todoListService: TodoListService; //implicit!
-
   constructor(private todoListService: TodoListService) {
-    // this.todoListService = todoListService; //implicit!
   }
 
   ngOnInit() {
@@ -22,7 +19,11 @@ export class ListManagerComponent implements OnInit {
   }
 
   addItem(title: string) {
-    this.todoList.push({ title }); //ES6 Object Property Value Shorthand
+    this.todoListService.addItem({ title }); //ES6 Object Property Value Shorthand
+  }
+
+  removeItem(item) {
+    this.todoListService.deleteItem(item);
   }
 
 }
